@@ -1,8 +1,10 @@
 <template>
   <button @click="toggleModalState">Open modal</button>
-  <modal v-if="modalOpen">
-    <p>Hello, I'm a modal window.</p>
-  </modal>
+  <teleport to="#modal-wrapper">
+    <modal v-if="modalOpen" @close="toggleModalState">
+      <p>Hello, I'm a modal window.</p>
+    </modal>
+  </teleport>
 </template>
 
 <script>
