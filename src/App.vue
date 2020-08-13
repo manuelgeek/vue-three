@@ -8,20 +8,23 @@
 <script>
 
 import Modal from "./Modal";
+import {ref} from "vue";
 
 export default {
   name: 'App',
   components: {
     Modal
   },
-  data: () => ({
-    modalOpen: true
-  }),
-  methods: {
-    toggleModalState() {
-      this.modalOpen = !this.modalOpen;
+  setup () {
+    const modalOpen = ref(false);
+    const toggleModalState = () => {
+      modalOpen.value = !modalOpen.value;
+    };
+    return {
+      modalOpen,
+      toggleModalState
     }
-  }
+  },
 }
 </script>
 
