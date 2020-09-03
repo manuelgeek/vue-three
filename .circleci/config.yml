@@ -14,9 +14,11 @@ jobs:
                       - v1-dependencies-{{ checksum "package.json" }}
                       - v1-dependencies-
             - run:
-                name: Setup Environment Variables
+                name: Setup App Env
                 command: |
-                  echo "export VUE_APP_NAME=$VUE_APP_NAME" >> $BASH_ENV
+                  cp .env.example .env.production
+                  sed -ri 's~^VUE_APP_NAME=~VUE_APP_NAME=${VUE_APP_NAME}~' .env.production
+#                  echo "export VUE_APP_NAME='$VUE_APP_NAME'" >> $BASH_ENV
             - run:
                   name: Install Dependencies
                   command: npm install
