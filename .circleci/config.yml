@@ -5,7 +5,7 @@ jobs:
             - image: circleci/node:10.16.0
         working_directory: ~/repo
         environment:
-          VUE_APP_NAME: $VUE_APP_NAME
+          VUE_APP_NAME: ${VUE_APP_NAME}
         steps:
             - checkout
             # Download and cache dependencies
