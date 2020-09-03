@@ -18,6 +18,7 @@ jobs:
                 command: |
                   cp .env.example .env.production
                   sed -ri 's~^VUE_APP_NAME=~VUE_APP_NAME=${VUE_APP_NAME}~' .env.production
+                  sed -ri 's~^VUE_APP_BASE_URL=~VUE_APP_BASE_URL=${VUE_APP_BASE_URL}~' .env.production
 #                  echo "export VUE_APP_NAME='$VUE_APP_NAME'" >> $BASH_ENV
             - run:
                   name: Install Dependencies

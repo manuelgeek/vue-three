@@ -1,5 +1,6 @@
 <template>
   <h1>{{ appName }}</h1>
+  <p>Base URL: {{ baseUrl }}</p>
   <button @click="toggleModalState">Open modal</button>
   <teleport to="#modal-wrapper">
     <modal v-if="modalOpen" @close="toggleModalState">
@@ -24,10 +25,12 @@ export default {
       modalOpen.value = !modalOpen.value;
     };
     const appName = process.env.VUE_APP_NAME;
+    const baseUrl = process.env.VUE_APP_BASE_URL;
     return {
       modalOpen,
       toggleModalState,
-      appName
+      appName,
+      baseUrl
     }
   },
 }
